@@ -200,7 +200,7 @@ def chat(prompt, model:str,llm_auth_token:str,llm_base_url:str,using_custom_llm=
             "content": prompt
         }],
         stream=True,
-        max_tokens=1024,temperature=0.2
+        max_tokens=13000,temperature=0.2
     ):
         stream_resp = chunk.dict()
 
