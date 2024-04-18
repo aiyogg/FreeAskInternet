@@ -203,7 +203,14 @@ def chat(prompt, model:str,llm_auth_token:str,llm_base_url:str,using_custom_llm=
         max_tokens=1024,temperature=0.2
     ):
         stream_resp = chunk.dict()
-        token = stream_resp["choices"][0]["delta"].get("content", "")
+        """
+        some api response data structure like stream_resp["choices"][0]["message"]["content"]
+        to complete both 'delta' and 'message' keys
+        """
+        if "message" in stream_resp["choices"][0]:
+            token = stream_resp["choices"][0]["message"].get("content", "")
+        else:
+            token = stream_resp["choices"][0]["delta"].get("content", "")
         if token:
             
             total_content += token
