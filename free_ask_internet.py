@@ -205,7 +205,7 @@ def chat(prompt, model:str,llm_auth_token:str,llm_base_url:str,using_custom_llm=
         stream_resp = chunk.dict()
 
         if len(stream_resp["choices"]) == 0:
-            break
+            continue
         token = stream_resp["choices"][0]["delta"].get("content", "")
         if token:
             
