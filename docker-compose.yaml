@@ -1,8 +1,8 @@
 services:
   backend:
     image: free_ask_internet:v0.0.1
-    depends_on:
-      - llm-freegpt35
+    # depends_on:
+    #   - llm-freegpt35
     restart: on-failure
  
 
@@ -16,9 +16,9 @@ services:
       - backend
     restart: always
 
-  llm-freegpt35:
-    image: missuo/freegpt35:latest
-    restart: always
+  # llm-freegpt35:
+  #   image: missuo/freegpt35:latest
+  #   restart: always
 
   searxng:
     image: docker.io/searxng/searxng:latest
